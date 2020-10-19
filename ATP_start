@@ -1,0 +1,13 @@
+// posts a single photo to twitter
+// require codebird
+require_once('/path/to/codebird_php_v2.4.1/codebird.php');
+ 
+\Codebird\Codebird::setConsumerKey("TpoqJ0qG726QYB2eldg9xtf6i", "DZZvI6f9RgD5Ij9JlI4oHUbbo33DpPLYgwRduy7PYhvXb3gpx1");
+$cb = \Codebird\Codebird::getInstance();
+$cb->setToken("your_AccessToken", "your_AccessTokenSecret");
+ 
+$params = array(
+        'status' => 'Auto Post on Twitter with PHP http://goo.gl/OZHaQD #php #twitter',
+        'media[]' => '/path/to/picture.png'
+);
+$reply = $cb->statuses_updateWithMedia($params);
